@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dbcreate">
+        <item>PRAGMA foreign_keys = false;</item>
+        <item>DROP TABLE IF EXISTS "contacts";</item>
+        <item>CREATE TABLE "contacts" (
+                 "_id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+                 "name" text NOT NULL,
+                 "email" text NOT NULL,
+                 "phone" text NOT NULL,
+                 "street" text NOT NULL,
+                 "city" text NOT NULL
+            );
+        </item>
+        <item>PRAGMA foreign_keys = true;</item>
+    </string-array>
+</resources>

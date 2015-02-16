@@ -1,0 +1,139 @@
+<TableLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:layout_alignParentTop="true"
+android:layout_alignParentLeft="true"
+android:layout_alignParentStart="true"
+tools:context="me.bahadir.bil425.dbsample.SaveActivity"
+android:padding="20dp"
+android:baselineAligned="false"
+android:background="@drawable/appbg">
+
+<TableRow
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:id="@+id/textView"
+        android:layout_column="0" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtName"
+        android:layout_column="1"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/txtLeftMargin" />
+</TableRow>
+
+<TableRow
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-Mail"
+        android:id="@+id/textView2"
+        android:layout_column="0" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtMail"
+        android:layout_column="1"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/txtLeftMargin"
+        android:inputType="textEmailAddress" />
+</TableRow>
+
+<TableRow
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/phone"
+        android:id="@+id/textView3"
+        android:layout_column="0" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/txtPhone"
+        android:layout_column="1"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/txtLeftMargin" />
+</TableRow>
+
+<TableRow
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Street"
+        android:id="@+id/textView4"
+        android:layout_column="0" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtStreet"
+        android:layout_column="1"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/txtLeftMargin" />
+</TableRow>
+
+<TableRow
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="City"
+        android:id="@+id/textView5"
+        android:layout_column="0" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCity"
+        android:layout_column="1"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/txtLeftMargin" />
+</TableRow>
+
+<TableRow
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1">
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:id="@+id/btnSave"
+        android:layout_column="0"
+        android:layout_gravity="bottom"
+        android:layout_span="2"
+        android:layout_weight="1"
+        android:background="@drawable/btn" />
+</TableRow>
+</TableLayout>
+
