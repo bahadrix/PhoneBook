@@ -33,7 +33,7 @@ public class DetailedAdapter extends BaseAdapter {
         this.items = new ArrayList<>();
         dbHelper = new DBHelper(context);
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+//e
 
     }
 

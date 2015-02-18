@@ -25,6 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         try {
             for (String st : sqlStatements) {
+
                 db.execSQL(st);
             }
             db.setTransactionSuccessful();

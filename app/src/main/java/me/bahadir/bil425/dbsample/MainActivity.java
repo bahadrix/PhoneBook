@@ -6,14 +6,28 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
+
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.extensions.android.json.AndroidJsonFactory;
+import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
+import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
+
+import java.io.IOException;
 
 import me.bahadir.bil425.dbsample.model.Contact;
+
 
 
 public class MainActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -21,13 +35,51 @@ public class MainActivity extends ActionBarActivity implements LoaderManager.Loa
     private SimpleCursorAdapter mAdapter;
     private DBHelper dbHelper;
     private ListView lstContact;
-
+    //private  contactService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+        /*ContactEndpoint.Builder builder = new ContactEndpoint.Builder(
+                AndroidHttp.newCompatibleTransport(),
+                new AndroidJsonFactory(),
+                null
+        );
+        builder.setRootUrl("")
+                .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
+                    @Override
+                    public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
+                        abstractGoogleClientRequest.setDisableGZipContent(true);
+                    }
+                });
+        contactService = builder.build();*/
+
+        AsyncTask<Void, Void, String> pingTask = new AsyncTask<Void, Void, String>() {
+            @Override
+            protected String doInBackground(Void... params) {
+
+                return pingService();
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
+            }
+        };
+        pingTask.execute();
+
+
         lstContact = (ListView) findViewById(R.id.lstContacts);
+
+        lstContact.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("yo","oı");
+            }
+        });
 
         dbHelper = new DBHelper(this);
         /**
@@ -49,7 +101,24 @@ public class MainActivity extends ActionBarActivity implements LoaderManager.Loa
 
         lstContact.setAdapter(mAdapter);
 
+
         getLoaderManager().initLoader(0, null, this);
+
+    }
+
+    private String pingService() {
+/*
+        try {
+            Response response = contactService.ping().execute();
+            return response.getMesage();
+        } catch (IOException e) {
+            Log.e("error on load remote", e.getMessage());
+            return e.getMessage();
+        }
+        */
+
+        return "";
+
 
     }
 
@@ -87,9 +156,6 @@ public class MainActivity extends ActionBarActivity implements LoaderManager.Loa
 
 
 
-    private void search(String keyWord) {
-
-    }
 
     @Override
     protected void onResume() {
